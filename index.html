@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
   </head>
   <body>
-    <canvas id="chart" width="400" height="400"></canvas>
+    <canvas id="chart" width="800" height="400"></canvas>
     <script>
 
       chartIt();
@@ -31,10 +31,23 @@
               },
             ],
           },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    callback: function(value, index, values) {
+                      return value + '°';
+                    }
+                  }
+                }
+              ]
+            }
+          }
         });
       }
       //Data from: https://data.giss.nasa.gov.gistemp/
-      //Mean from: https://earthobservatory.nasa.gov/world-of/
+      //Mean from: https://earthobservatory.nasa.gov/world-of-change/DecadalTemp/
 
       async function getData() {
         const xAxis = [];
