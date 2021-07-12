@@ -7,17 +7,28 @@
     <title>Fetch JSON from API and map lat long</title>
   </head>
   <body>
+
+    <h1>Where is the ISS?</h1>
+
+    <p>
+      latitude: <span id="lat"></span><br/>
+      longitude: <span id="long"></span>
+    </p>
+
     <script>
 
       const url = "https://api.wheretheiss.at/v1/satellites/25544";
 
-      getISS();
-
       async function getISS() {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data);
+        const { latitude, longitude } = data;
+
+        document.getElementById("lat").textContent = latitude;
+        document.getElementById("long").textContent = longitude;
       };
+
+      getISS();
 
     </script>
   </body>
