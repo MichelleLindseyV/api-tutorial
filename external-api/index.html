@@ -8,7 +8,17 @@
   </head>
   <body>
     <script>
-      
+
+      const url = "https://api.wheretheiss.at/v1/satellites/25544";
+
+      getISS();
+
+      async function getISS() {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+      };
+
     </script>
   </body>
 </html>
