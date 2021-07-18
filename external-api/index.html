@@ -33,7 +33,9 @@
       //   location = ''
       // }, 4000)
 
-      const mymap = L.map('issMap').setView([51.505, -0.09], 13);
+      const mymap = L.map('issMap').setView([0, 0], 1);
+      const marker = L.marker([0, 0]).addTo(mymap);
+
       const attribution = 
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       
@@ -46,6 +48,8 @@
         const response = await fetch(url);
         const data = await response.json();
         const { latitude, longitude } = data;
+
+        marker.setLatLng([latitude, longitude]);
 
         document.getElementById("lat").textContent = latitude;
         document.getElementById("long").textContent = longitude;
