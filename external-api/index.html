@@ -28,10 +28,7 @@
 
     <div id="issMap"></div>
 
-    <script type="text/javascript">
-      // setTimeout(function(){
-      //   location = ''
-      // }, 4000)
+    <script>
 
       // Making a map and tiles
       const mymap = L.map('issMap').setView([0, 0], 1);
@@ -44,14 +41,15 @@
       tiles.addTo(mymap);
       
       // Making a marker with a custom icon
-      const issIcon = L.icon({
-        iconUrl: 'cat_moji.png',
-        iconeSize: [50, 32],
-        iconAnchor: [25, 16]
-      });
+      // const issIcon = L.icon({
+      //   iconUrl: 'cat_moji.png',
+      //   iconeSize: [50, 32],
+      //   iconAnchor: [25, 16]
+      // });
       //By OpenMoji, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=69426184">Link</a>
 
-      const marker = L.marker([0, 0], { icon: issIcon}).addTo(mymap);
+      // const marker = L.marker([0, 0], { icon: issIcon}).addTo(mymap);
+      const marker = L.marker([0, 0]).addTo(mymap);
 
       const url = "https://api.wheretheiss.at/v1/satellites/25544";
 
@@ -61,12 +59,15 @@
         const { latitude, longitude } = data;
 
         marker.setLatLng([latitude, longitude]);
+        mymap.setView([latitude, longitude], 5);
 
         document.getElementById("lat").textContent = latitude;
         document.getElementById("long").textContent = longitude;
       };
 
       getISS();
+
+      setInterval(getISS, 5000);
 
     </script>
   </body>
