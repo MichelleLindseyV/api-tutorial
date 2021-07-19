@@ -10,14 +10,19 @@
     <script>
       if ('geolocation' in navigator) {
         console.log('geolocation available');
-        navigator.geolocation.getCurrentPosition();
+        navigator.geolocation.getCurrentPosition(position => {
+          console.log(position);
+        });
       } else {
           console.log('geolocation not available');
         }
     </script>
     <h1>Data Selfie App</h1>
 
-    <p>Hello World!</p>
+    <p>
+      latitude: <span id="lattitude"></span>&deg;<br />
+      longitude: <span id="longitude"></span>&deg;
+    </p>
   
   </body>
 </html>
