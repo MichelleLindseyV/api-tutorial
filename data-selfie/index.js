@@ -7,9 +7,12 @@ app.use(express.json({ limit: '1mb' }));
 
 app.post('/api', (req, res) => {
   console.log(req.body);
-  response.json({
+  const data = req.body;
+  console.log(data.lat);
+  console.log(data.lon);
+  res.json({
     status: 'success',
-    latitude: lat,
-    longitude: lon
+    latitude: data.lat,
+    longitude: data.lon
   });
 });
