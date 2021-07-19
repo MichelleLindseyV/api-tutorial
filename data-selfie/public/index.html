@@ -16,6 +16,16 @@
           document.getElementById('latitude').textContent = lat;
           document.getElementById('longitude').textContent = lon;
           console.log(position);
+
+          const data = { lat, lon};
+          const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          };
+          fetch('/api', options);
         }); 
       } else {
           console.log('geolocation not available');
