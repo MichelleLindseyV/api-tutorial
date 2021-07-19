@@ -25,7 +25,10 @@
             },
             body: JSON.stringify(data)
           };
-          fetch('/api', options);
+          fetch('/api', options)
+          .then(response => {
+            console.log("Response", response);
+          });
         }); 
       } else {
           console.log('geolocation not available');
