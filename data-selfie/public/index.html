@@ -7,7 +7,28 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>Data Selfie App</h1>
+    <p>
+      latitude: <span id="latitude"></span>&deg;<br />
+      longitude: <span id="longitude"></span>&deg;
+    </p>
+    <button id="submit">submit</button>
     <script>
+      let lat, lon;
+      const button = document.getElementById('submit');
+      button.addEventListener('click', async event => {
+        const data = { lat, lon };
+        const options =  {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        };
+        const response = await fetch('/api', options);
+        const json = await response.json();
+      });
+
       if ('geolocation' in navigator) {
         console.log('geolocation available');
         navigator.geolocation.getCurrentPosition(async position => {
@@ -33,12 +54,5 @@
           console.log('geolocation not available');
         }
     </script>
-    <h1>Data Selfie App</h1>
-
-    <p>
-      latitude: <span id="latitude"></span>&deg;<br />
-      longitude: <span id="longitude"></span>&deg;
-    </p>
-  
   </body>
 </html>
