@@ -13,6 +13,13 @@
       longitude: <span id="longitude"></span>&deg;
     </p>
     <button id="submit">submit</button>
+
+    <form action='/api', method='POST'>
+      <label for="mood">Mood:</label>
+      <input type='text' id='mood' name='mood'>
+      <input type='submit' value='Sumbit'>
+    </form>
+    
     <script>
       let lat, lon;
       const button = document.getElementById('submit');
