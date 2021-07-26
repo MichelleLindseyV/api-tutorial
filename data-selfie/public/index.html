@@ -12,18 +12,17 @@
       latitude: <span id="latitude"></span>&deg;<br />
       longitude: <span id="longitude"></span>&deg;
     </p>
-    <button id="submit">submit</button>
-
-    <form action='/api', method='POST'>
-      <label for="mood">Mood:</label>
-      <input id='mood' value='tired' />
-      <button id='submit'>submit</button>
+    <label for="mood">Mood:</label>
+    <input id='mood' value='tired' />
+    
+    <button id='submit'>submit</button>
     
     <script>
       let lat, lon;
       const button = document.getElementById('submit');
       button.addEventListener('click', async event => {
-        const data = { lat, lon };
+        const mood = document.getElementById('mood').value;
+        const data = { lat, lon, mood };
         const options =  {
           method: 'POST',
           headers: {
