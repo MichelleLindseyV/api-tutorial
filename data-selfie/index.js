@@ -1,3 +1,4 @@
+const { response } = require('express');
 const express = require('express');
 const Datastore = require('nedb');
 
@@ -8,6 +9,10 @@ app.use(express.json({ limit: '1mb' }));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
+
+app.get('/api', (req, res) => {
+  res.json({ test: 123 });
+});
 
 app.post('/api', (req, res) => {
   const data = req.body;

@@ -8,6 +8,13 @@
   </head>
   <body>
     <h1>Data Selfie App</h1>
-    <script></script>
+    <script>
+      getData();
+      async function getData() {
+        const response = await fetch('/api');
+        const data = await response.json();
+        console.log(data);
+      }
+    </script>
   </body>
 </html>
