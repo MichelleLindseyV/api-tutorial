@@ -15,10 +15,5 @@ app.post('/api', (req, res) => {
   data.timestamp = timestamp;
 
   database.insert(data);
-  res.json({
-    status: 'success',
-    timestamp: timestamp, 
-    latitude: data.lat,
-    longitude: data.lon
-  });
+  res.json(data);
 });
