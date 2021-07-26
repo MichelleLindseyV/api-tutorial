@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js" integrity="sha512-P/Je1zlTfRugG4aRZRx9hYRVph2CkbpchkgP6ub1gNF/VNHDUNq0/WOY0CSLMmwEXxrQ7HohFmMenWGpx8ZzvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js" integrity="sha512-hAm8hj9/2EIonvS+sf0G3anaY8zYHv6q7ktNlLTg8wLwFvhUavnDdH0gif8SA3U1kN0lyKBWbf1wD4+5BfaMMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
   </head>
   <body>
@@ -18,7 +20,9 @@
     <button id='submit'>submit</button>
     
     <script>
-      let lat, lon;
+      function setup() {
+
+        let lat, lon;
       const button = document.getElementById('submit');
       button.addEventListener('click', async event => {
         const mood = document.getElementById('mood').value;
@@ -46,6 +50,10 @@
       } else {
           console.log('geolocation not available');
         }
+
+        background(255, 0, 0);
+
+      };
     </script>
   </body>
 </html>
